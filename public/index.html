@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard Interactivo</title>
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Iconos -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+	<!-- CSS -->
+	<link href="styles.css" rel="stylesheet">
+	<!-- Bootstrap JS -->
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Chart JS -->
+  	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  	<!-- Script JS -->
+  	<script src="script.js" defer></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Sidebar -->
+			 <nav class="col-md-2 d-none d-md-block sidebar p-3">
+				<h3 class="text-center">📊 Dashboard</h3>
+				<hr>
+				<a href="#"><i class="bi bi-house"></i> Inicio</a>
+				<a href="#"><i class="bi bi-graph-up"></i> Estadisticas</a>
+				<a href="#"><i class="bi bi-table"></i> Tablas</a>
+				<a href="#"><i class="bi bi-gear"></i> Configuración</a>
+			 </nav>
+
+			 <!-- Contenido principal -->
+			  <main class="col-md-10 ms-sm-auto px-md-4 py-4">
+				<div class="d-flex justify-content-between align-items-center mb-4">
+          			<h2>Bienvenido al Dashboard</h2>
+          			<button id="toggleDark" class="btn btn-outline-secondary">
+            			<i class="bi bi-moon"></i> Modo oscuro
+          			</button>
+        		</div>
+
+				<!-- Tarjetas Resumen -->
+				 <div class="row mb-4">
+					<div class="col-md-3">
+						<div class="card shadow-sm text-center p-3">
+							<h5>Usuarios</h5>
+							<h2 id="usuarios">-</h2>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="card shadow-sm text-center p-3">
+							<h5>Ventas</h5>
+							<h2 id="ventas">-</h2>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="card shadow-sm text-center p-3">
+							<h5>Ganancias</h5>
+							<h2 id="ganancias">-</h2>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="card shadow-sm text-center p-3">
+							<h5>Pedidos</h5>
+							<h2 id="pedidos">-</h2>
+						</div>
+					</div>
+				 </div>
+
+				 <!-- Grafico -->
+				<div class="card shadow-sm p-4 mb-4">
+					<h5>Gráfico de Ventas</h5>
+					<canvas id="graficoVentas"></canvas>
+				</div>
+
+				<!-- Tabla -->
+				 <div class="card shadow-sm p-4">
+					<h5>Últimos Pedidos</h5>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Cliente</th>
+								<th>Producto</th>
+								<th>Precio</th>
+								<th>Estado</th>
+							</tr>
+						</thead>
+						<tbody id="tablaPedidos">
+							<tr>
+								<td>1</td>
+								<td>Juan Pérez</td>
+								<td>Camisa</td>
+								<td>$25</td>
+								<td><span class="badge bg-success">Completado</span></td>
+              				</tr>
+
+							<tr>
+								<td>2</td>
+								<td>Ana López</td>
+								<td>Pantalón</td>
+								<td>40</td>
+								<td><span class="badge bg-warning text-dark">Pendiente</span></td>
+							</tr>
+						</tbody>
+					</table>
+				 </div>
+
+				 <!-- Clima -->
+				<div class="card shadow-sm p-4 mb-4">
+					<h5>Clima Actual</h5>
+
+					<!-- Buscador de ciudad -->
+					<form id="formClima" class="d-flex mb-3">
+						<input type="text" id="inputCiudad" class="form-control me-2" placeholder="Introduce una ciudad...">
+						<button class="btn btn-primary" type="submit">Buscar</button>
+					</form>
+
+					<!-- Resultado clima -->
+					<div id="clima" class="d-flex align-items-center">
+						<i class="bi bi-cloud-sun me-2 fs-3"></i>
+						<div>
+							<p class="mb-0"><strong>Ciudad:</strong> <span id="ciudad">-</span></p>
+							<p class="mb-0"><strong>Temperatura:</strong> <span id="temp">-</span></p>
+							<p class="mb-0"><strong>Humedad:</strong> <span id="humedad">-</span></p>
+						</div>
+					</div>
+				</div>
+			  </main>
+		</div>
+	</div>
+</body>
+</html>
