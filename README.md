@@ -17,3 +17,14 @@ Puedes ver el proyecto funcionando en línea aquí:
 [Dashboard Interactivo](https://dashboard-interactivo.onrender.com)
 
 ---
+
+## 📂 Estructura del proyecto
+/dashboard-interactivo
+├── public/ ← Frontend (HTML, CSS, JS)
+│ ├── index.html
+│ ├── app.js
+│ └── style.css
+├── server.js ← Backend Node.js
+├── package.json
+├── package-lock.json
+└── .gitignore ← Ignora node_modules/ y .env
